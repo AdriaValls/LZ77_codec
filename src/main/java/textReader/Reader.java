@@ -1,15 +1,17 @@
+package textReader;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author JDPrades 2009
- */
-public class txtReader {
 
+public class Reader {
+
+    public Reader(){
+
+    }
     /**
      * @param input cadena de caracteres (letras) a codificar en ASCII
      * @return output cadena de caracteres "1" y "0" con los códigos ASCII (8bits) de todas las letras de input
@@ -58,7 +60,7 @@ public class txtReader {
                 txt_data.append(scn.next() + " ");
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(txtReader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         //System.out.println("Text d'entrada: " + txt_data);

@@ -1,10 +1,12 @@
+package codec;
+
 import java.util.HashMap;
 
 public class Decoder {
     private TableManager tables;
 
     public Decoder(){
-        this.tables = new  TableManager();
+        this.tables = new TableManager();
 
     }
 

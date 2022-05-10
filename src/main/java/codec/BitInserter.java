@@ -1,3 +1,5 @@
+package codec;
+
 public class BitInserter {
 
     public BitInserter(){}

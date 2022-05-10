@@ -1,3 +1,5 @@
+package codec;
+
 import java.util.HashMap;
 
 public class TableManager {

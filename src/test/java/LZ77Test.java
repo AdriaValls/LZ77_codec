@@ -1,9 +1,10 @@
-import org.junit.Assert;
+import codec.BitInserter;
+import codec.Decoder;
+import codec.Encoder;
+import codec.TableManager;
 import org.junit.Test;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 
 public class LZ77Test {
 
