@@ -47,7 +47,7 @@ public class LZ77Test {
     public void deleteBitTest() {
 
         int Mdes  = 4;
-        String input = "110100010010010110110001010100101";
+        String input = "1101000100100101101100011010100101";
         System.out.print("in: "+input+"\n");
         BitInserter inserter = new BitInserter();
         String output = inserter.bitDeletion(Mdes, input);

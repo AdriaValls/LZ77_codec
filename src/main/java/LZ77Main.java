@@ -1,9 +1,18 @@
+import charts.LineChart;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class LZ77Main {
 
     public static void main(String[] args) {
         System.out.println("LZ77 Codec");
-        part1();
-        //part2(); //para ver la grafica
+        //part1();
+        part2(); //para ver la grafica
+
     }
 
     public static void part1(){
@@ -25,13 +34,11 @@ public class LZ77Main {
         assert  output.equals(input);
 
     }
-
-    /*
     public static void part2(){
         BitInserter inserter = new BitInserter();
         Encoder encoder = new Encoder();
 
-        int maxWindowSize = 2048;
+        int maxWindowSize = 512;
         int minWindowSize = 2;
 
         int inputLen = 10000;
@@ -39,34 +46,78 @@ public class LZ77Main {
         int windowSize=minWindowSize;
         String input = randomSequence(inputLen);
 
-        XYSeries series1 = new XYSeries("Tamaño de ventana");
+
+        XYSeries series1 = new XYSeries("Window size");
 
         while (windowSize <= maxWindowSize){
             System.out.println("Sliding window Size =  "+windowSize+"\n");
-            System.out.println("Entry window Size =  "+windowSize+"\n");
+            System.out.println("Entry window Size =  "+windowSize/2+"\n");
 
             String bitIns = inserter.bitInsertion(windowSize,input);
-            String encodedInput = encoder.String_encoder(bitIns, windowSize, windowSize);
+            String encodedInput = encoder.String_encoder(bitIns, windowSize/2, windowSize);
 
             //original/nou x:1
             float compressionFactor = (float) inputLen / (float) encodedInput.length();
-            //System.out.println(encodedInput.length());
-            //System.out.println(compressionFactor);
 
-            //CompList.add(compressionFactor);
-            //System.out.println(windowSize);
-            //windowList.add(windowSize);
             series1.add(windowSize, compressionFactor);
-
-
             windowSize = windowSize * minWindowSize;
         }
-        com.zetcode.GraphTest graphTest = new com.zetcode.GraphTest();
-        //graphTest.showgraph(CompList,windowList);
-        graphTest.showgraph(series1);
-        graphTest.setVisible(true);
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series1);
+
+        LineChart chart = new LineChart();
+        chart.initUI(dataset);
+        chart.setVisible(true);
+
+
     }
-*/
+
+    public static void lz77_text(){ //
+
+        Reader txtReader = new Reader();
+
+        File file_text = new File("C:\\Users\\sebas\\IdeaProjects\\LZ77-codec\\src\\resources\\hamlet_short.txt");
+        try {
+            Scanner scanner =  new Scanner(file_text);
+            while (scanner.hasNextLine()){
+
+
+                StringBuffer string = new StringBuffer(scanner.nextLine());
+                StringBuffer encoded = txtReader.string2ASCIIbin(string);
+                //StringBuffer decoded = txtReader.ASCIIbin2string(encoded);
+
+                System.out.println("input: " + encoded);
+                part3(encoded.toString()); //call old lz77 code using the current encoded string as input
+                //System.out.println(decoded);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public static void part3(String text_line){ //lz77-text
+
+
+        BitInserter inserter = new BitInserter();
+        Encoder encoder = new Encoder();
+        Decoder decoder = new Decoder();
+
+        String input = text_line;
+        int inputLen = text_line.length();
+        int Mdest = 8; //sliding window
+        int Ment = 4; //input window
+
+        System.out.println("ent window: " + Ment);
+        System.out.println("sliding window: " + Mdest);
+
+        String bitIns = inserter.bitInsertion(Mdest,input);
+        String encodedInput = encoder.String_encoder(bitIns, Ment, Mdest);
+
+        System.out.println("encoded input:" + encodedInput);
+
+    }
 
     public static void graph2values(){
         BitInserter inserter = new BitInserter();
