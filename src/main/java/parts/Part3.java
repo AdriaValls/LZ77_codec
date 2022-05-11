@@ -11,9 +11,11 @@ import textReader.Reader;
 
 public class Part3 {
 
-    public static void part3(String text_line){ //lz77-text
+    public Part3(){ //lz77-text
+        lz77_text();
+    }
 
-
+    public void codec3(String text_line){
         BitInserter inserter = new BitInserter();
         Encoder encoder = new Encoder();
         Decoder decoder = new Decoder();
@@ -30,24 +32,24 @@ public class Part3 {
         String encodedInput = encoder.String_encoder(bitIns, Ment, Mdest);
 
         System.out.println("encoded input:" + encodedInput);
-
     }
+
+
     public void lz77_text(){ //
 
         Reader txtReader = new Reader();
 
-        File file_text = new File("C:\\Users\\sebas\\IdeaProjects\\LZ77-codec\\src\\resources\\hamlet_short.txt");
+        File file_text = new File("C:\\Users\\adriv\\IdeaProjects\\LZ77_codec\\hamlet_short.txt");
         try {
             Scanner scanner =  new Scanner(file_text);
             while (scanner.hasNextLine()){
-
 
                 StringBuffer string = new StringBuffer(scanner.nextLine());
                 StringBuffer encoded = txtReader.string2ASCIIbin(string);
                 //StringBuffer decoded = txtReader.ASCIIbin2string(encoded);
 
                 System.out.println("input: " + encoded);
-                part3(encoded.toString()); //call old lz77 code using the current encoded string as input
+                codec3(encoded.toString()); //call old lz77 code using the current encoded string as input
                 //System.out.println(decoded);
             }
         } catch (FileNotFoundException e) {

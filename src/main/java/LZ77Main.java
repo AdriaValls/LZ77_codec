@@ -16,7 +16,7 @@ public class LZ77Main {
     public static void main(String[] args) {
         System.out.println("LZ77 Codec");
         //Part1 part1 = new Part1();
-        Part2 part2 = new Part2();
-        //Part3 part3 = new Part3();
+        //Part2 part2 = new Part2();
+        Part3 part3 = new Part3();
     }
 }
