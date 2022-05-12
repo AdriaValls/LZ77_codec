@@ -37,7 +37,6 @@ public class Decoder {
             //Get each respective size
             L = entTable.get(entBits);
             D = desTable.get(slideBits);
-            System.out.print("("+L+","+D+")"+"\n");
             //add the coincidence to the output
             String nextBits = output.substring(output.length()-D, output.length()-D+L);
             output += nextBits;

@@ -7,9 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import parts.Part1;
-import parts.Part2;
-import parts.Part3;
+import parts.*;
 
 public class LZ77Main {
 
@@ -18,5 +16,9 @@ public class LZ77Main {
         //Part1 part1 = new Part1();
         //Part2 part2 = new Part2();
         Part3 part3 = new Part3();
+        //Part4 part4 = new Part4();
+        //Part5 part5 = new Part5();
+
+
     }
 }

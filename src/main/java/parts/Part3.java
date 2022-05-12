@@ -15,6 +15,17 @@ public class Part3 {
         lz77_text();
     }
 
+    public void lz77_text(){ //
+
+        Reader txtReader = new Reader();
+        //C:\Users\adriv\IdeaProjects\LZ77_codec\quijote_short.txt
+        //C:\Users\adriv\IdeaProjects\LZ77_codec\hamlet_short.txt
+        StringBuffer binTxt = txtReader.cargarTxt("C:\\Users\\adriv\\IdeaProjects\\LZ77_codec\\quijote_short.txt");
+
+        System.out.println("input: " + binTxt);
+        codec3(binTxt.toString()); //call old lz77 code using the current encoded string as input
+    }
+
     public void codec3(String text){
         BitInserter inserter = new BitInserter();
         Encoder encoder = new Encoder();
@@ -23,19 +34,20 @@ public class Part3 {
 
         String input = text;
         int inputLen = text.length();
-        int Mdest = 124; //sliding window
-        int Ment = 8; //input window
+        int Mdest = 256*2*2*2; //sliding window
+        int Ment = 32; //input window
 
         System.out.println("ent window: " + Ment);
         System.out.println("sliding window: " + Mdest);
         System.out.println("original lenght:" + text.length());
 
+        long nano_startTime = System.nanoTime();
         String bitIns = inserter.bitInsertion(Mdest,input);
-
-        System.out.println("inserted lenght:" + bitIns.length());
-
         String encodedTxt = encoder.String_encoder(bitIns, Ment, Mdest);
+        long nano_endTime = System.nanoTime();
 
+        System.out.println("Time taken in nano seconds: " + (nano_endTime - nano_startTime));
+        System.out.println("inserted lenght:" + bitIns.length());
         System.out.println("encoded lenght:" + encodedTxt.length());
 
 
@@ -47,17 +59,5 @@ public class Part3 {
     }
 
 
-    public void lz77_text(){ //
 
-        Reader txtReader = new Reader();
-
-        StringBuffer binTxt = txtReader.cargarTxt("C:\\Users\\adriv\\IdeaProjects\\LZ77_codec\\hamlet_short.txt");
-
-        System.out.println("input: " + binTxt);
-        codec3(binTxt.toString()); //call old lz77 code using the current encoded string as input
-        //System.out.println(decoded);
-        //StringBuffer decTxt = txtReader.ASCIIbin2string(binTxt);
-        //System.out.println("Decoded text: " + decTxt);
-
-    }
 }

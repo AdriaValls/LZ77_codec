@@ -60,17 +60,6 @@ public class LZ77Test {
         System.out.print(output.length()+"\n");
     }
 
-
-
-    //Otros tests  del código
-    @Test
-    public void NumToBitTest() {
-        TableManager tables = new TableManager();
-
-        HashMap<Integer, String> numBits = tables.numberToBitTable(8);
-        HashMap<String ,Integer > bitsnum = tables.bitToNumberTable(8);
-
-    }
     @Test
     public void encodingTest() {
         TableManager tables = new TableManager();
@@ -95,6 +84,19 @@ public class LZ77Test {
 
         String output = decoder.decode(input, entrySize, slideSize);
         System.out.print(output);
+    }
+
+
+
+
+    //Otros tests  del código
+    @Test
+    public void NumToBitTest() {
+        TableManager tables = new TableManager();
+
+        HashMap<Integer, String> numBits = tables.numberToBitTable(8);
+        HashMap<String ,Integer > bitsnum = tables.bitToNumberTable(8);
+
     }
 
 

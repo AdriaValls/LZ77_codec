@@ -45,6 +45,7 @@ public class LineChart extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     private JFreeChart createLogChart(XYDataset dataset) {
 
         JFreeChart chart = ChartFactory.createXYLineChart(
