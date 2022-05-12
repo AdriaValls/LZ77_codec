@@ -22,7 +22,6 @@ public class Decoder {
 
         int borderBit = Mdes;
         String output = input.substring(borderBit-Mdes,Mdes);
-        System.out.print("Sliding window: "+output+"\n");
         int L;
         int D;
         String slideBits;

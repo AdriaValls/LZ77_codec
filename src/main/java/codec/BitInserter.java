@@ -34,11 +34,11 @@ public class BitInserter {
     }
 
 
-    public String bitDeletion(int Mdest, String sequence){
+    public StringBuffer bitDeletion(int Mdest, String sequence){
         int count = 0; //create a counter to keep track of consecutive-repeated bits (000000 or 111111)
         char nextChar; //in case we have too much of the same bit, we use the insert bit character
         char seqBit = sequence.charAt(0);
-        String output = "";
+        StringBuffer output = new StringBuffer("");
         boolean deletenext = false;
 
         for (int i = 0; i < sequence.length(); i++ ) {
@@ -46,7 +46,7 @@ public class BitInserter {
             if(deletenext){
                 if(nextChar != sequence.charAt(i)){
                     nextChar = sequence.charAt(i);
-                    output += ""+nextChar;
+                    output.append(nextChar);
                     count = 1;
                 }else{
                     count = 0;
@@ -58,15 +58,15 @@ public class BitInserter {
                 if(nextChar == seqBit){
                     count += 1;
                     if(count == Mdest-1){
-                        output += ""+nextChar;
+                        output.append(nextChar);
                         deletenext = true;
                     }else{
-                        output += ""+nextChar;
+                        output.append(nextChar);
                     }
                 }else{
                     seqBit = nextChar;
                     count = 1;
-                    output += ""+nextChar;
+                    output.append(nextChar);
                 }
             }
         }

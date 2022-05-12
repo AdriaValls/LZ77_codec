@@ -16,7 +16,7 @@ public class Reader {
      * @param input cadena de caracteres (letras) a codificar en ASCII
      * @return output cadena de caracteres "1" y "0" con los códigos ASCII (8bits) de todas las letras de input
      */
-    public static StringBuffer string2ASCIIbin(StringBuffer input) { //encode
+    public StringBuffer string2ASCIIbin(StringBuffer input) { //encode
         int ASCIIrange = 256;
         StringBuffer output = new StringBuffer("");
         for (int i = 0; i < input.length(); ++i) {
@@ -33,7 +33,7 @@ public class Reader {
      * @param input cadena de caracteres "1" y "0" con los códigos ASCII de todas las letras a decodificar
      * @return output cadena de caracteres (letras) decodificadas
      */
-    public static StringBuffer ASCIIbin2string(StringBuffer input) { //decode
+    public StringBuffer ASCIIbin2string(StringBuffer input) { //decode
         int ASCIImodulo = 8;
         StringBuffer output = new StringBuffer("");
         for (int i = 0; i <= input.length() - ASCIImodulo; i = i + ASCIImodulo) {
@@ -49,7 +49,7 @@ public class Reader {
      * @param path ruta la fichero de texto
      * @return output cadena binaria correspondiente al texto en ASCII
      */
-    public static StringBuffer cargarTxt(String path) {
+    public StringBuffer cargarTxt(String path) {
         StringBuffer txt_data = new StringBuffer("");
         FileReader fr;
 
@@ -73,7 +73,7 @@ public class Reader {
      * @param maxval valor del màximo entero codificable (determina el número de bits con que se codificara valor)
      * @return output cadena binaria al código binario natural de valor
      */
-    public static String int2bin(int valor, int maxval) {
+    public String int2bin(int valor, int maxval) {
         int numbits = getNumBits(maxval);
         String binstring = Integer.toBinaryString((1 << 31) | (valor));
         return (binstring.substring(binstring.length() - numbits));
@@ -83,7 +83,7 @@ public class Reader {
      * @param valor número entero
      * @return output número de bits necesarios para codificar entero en binario natural
      */
-    public static int getNumBits(int valor) {
+    public int getNumBits(int valor) {
         return (Integer.toBinaryString(valor).length());
     }
 }
