@@ -1,10 +1,12 @@
+package codec;
+
 import java.util.HashMap;
 
 public class Decoder {
     private TableManager tables;
 
     public Decoder(){
-        this.tables = new  TableManager();
+        this.tables = new TableManager();
 
     }
 
@@ -20,7 +22,6 @@ public class Decoder {
 
         int borderBit = Mdes;
         String output = input.substring(borderBit-Mdes,Mdes);
-        System.out.print("Sliding window: "+output+"\n");
         int L;
         int D;
         String slideBits;
@@ -36,7 +37,6 @@ public class Decoder {
             //Get each respective size
             L = entTable.get(entBits);
             D = desTable.get(slideBits);
-            System.out.print("("+L+","+D+")"+"\n");
             //add the coincidence to the output
             String nextBits = output.substring(output.length()-D, output.length()-D+L);
             output += nextBits;

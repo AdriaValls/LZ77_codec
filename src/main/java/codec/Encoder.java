@@ -1,3 +1,5 @@
+package codec;
+
 import java.util.HashMap;
 
 public class Encoder {
@@ -20,8 +22,8 @@ public class Encoder {
         //String input = "1100100110";
         String sldWin = input.substring(0,Mdest);
         String entWin = input.substring(Mdest, Mdest + Ment);
-        //System.out.println("Encoder sliding window: "+ sldWin +"\n");
-        //System.out.println("Encoder ent window: "+ entWin);
+        //System.out.println("codec.Encoder sliding window: "+ sldWin +"\n");
+        //System.out.println("codec.Encoder ent window: "+ entWin);
 
         String compressed_input = "";
 

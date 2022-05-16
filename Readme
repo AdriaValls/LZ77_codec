@@ -1,0 +1,22 @@
+Aquest projecte es una extensió de la pràctica anterior de l'LZ77, ara comprimeix arxius txt.
+
+Hem dividit els subapartats el parts les quals els poden executar a través del main a la
+classe LZ77Main i estan repartits de la següent manera:
+
+    -Les Parts 1 i 2, son els apartats a i b de la pràctica anterior.
+
+    -La Part 3 es la part 1 d'aquesta pràctica, i la que està activa per default i es pot
+     veure el funcionament correcte del codec.
+
+    -Les Parts 4 i 5 proven diferents valors de finestres i ensenya el temps i mida en bits dels textos comprimits.
+
+Per executar podem executar el jar amb la commanda "java -jar LZ77_codec-1.0-SNAPSHOT.jar" al jar que es pot trobar
+al directori de target dins el projecte.
+
+La millor compressió del quijote la tenim quan la Mdest = 4096/2048 i Ment = 32 am un ratio de 1.13:1 i 1.11:1
+respectivament, amb una finestra lliscant de 4096 bits hi ha una milor compresió pero tarda una mica més, tot i així 4096/32 es el que
+agafaría per aquest text.
+
+En el cas de hamlet hem trobat que Mdest = 4096 Ment = 128 es la millor combinació amb un ratio de 1.2:1.
+La diferència pot ser la quantitat de noms repetits que es veuen en el text de hamlet on hi ha un nom en cada línina
+que es repeteix.
